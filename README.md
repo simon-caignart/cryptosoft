@@ -1,36 +1,31 @@
-# Presentation
+# :pill: CryptoSoft
 
-CryptoSoft is a software that can encrypt or decrypt any file using XOR byte per byte technique.
+CryptoSoft is a software that offers file encryption and decryption using the **XOR byte-per-byte** technique.
 
-# Syntax
+## How to Use
+```
+CryptoSoft.exe source "source_file_path" destination "destination_file_path"
+```
+### Important Information
 
-Command line to use : CryptoSoft.exe source "sourceFile_path"  destination "destinationFile_path"
+-   To ensure secure encryption, please follow these steps:
+  - Place the crypto key in a `cryptoKey.txt` file.
+  - Save the `cryptoKey.txt` file in the config folder located within the **CryptoSoft.exe directory**.
+  - The crypto key must be a **minimum of 64 bytes long**.
 
-Example : CryptoSoft.exe source "C:\Users\simon\3D Objects\TestCryptoSoft\TestCryptoSoft.txt" destination "C:\Users\simon\3D Objects\Destination TestCryptoSoft\TestCryptoSoft.txt"
+## Return Codes
 
-# Important Informations
+-   `-1`: The `source` argument is missing.
+-   `-2`: The `destination` argument is missing.
+-   `-3`: The crypto key is less than the required minimum of 64 bytes.
+-   `-4`: Encryption or decryption failed, possibly due to incorrect file paths.
+-   `<0`: The returned value represents the encryption time of the file in milliseconds.
 
-The Crypto Key must be placed in a txt file named "cryptoKey.txt", which is placed in a config folder, placed in the CryptoSoft.exe directory.
+## Changelog
 
-The Crypto Key must be 64 bytes long minimum.
+`2.0`
+  - Now supports encryption and decryption of large files (greater than 2 GB).
+  - Improved security with the placement of crypto key in the config folder.
 
-# Return code of the exe
-
--1 : The first argument "source" is not present.
-
--2 : The second argument "destination" is not present.
-
--3 : The Crypto key is not the minimum 64 bytes long.
-
--4 : Encryption or decryption failed, error could be that the paths are wrong.
-
-<0 : The value returned is the encryption time of the file in milliseconds.
-
-# Changelog
-
-2.0 :
-- You can now encrypt and decrypt large files (more than 2 gb ).
-- Crypto key is now placed in a config folder.
-
-1.0 : 
-- You can encrypt and decrypt any files below 2gb size.
+`1.0`
+  - Initial release with support for file encryption and decryption of files below 2 GB in size.
